@@ -178,21 +178,74 @@ QRadioButton::indicator:disabled {
     border: 2px solid rgb(136, 136, 136);
 }
 
-QCheckBox::indicator:checked {
+QCheckBox::indicator::checked {
     image: url(:/icons/light/check.svg);
-    background-color: rgb(220, 235, 255); // Light blue accent
+    background-color: palette(base);
     border: 2px solid palette(base);
 }
 
-QRadioButton::indicator:checked {
-    background-color: qradialgradient(cx:0.5, cy:0.5, fx:0.5, fy:0.5, radius:.4, stop:.65 rgb(220, 235, 255), stop:.75 transparent);
+QRadioButton::indicator::checked {
+    background-color: qradialgradient(cx:0.5, cy:0.5, fx:0.5, fy:0.5, radius:.4, stop:.65 palette(base), stop:.75 transparent);
     border: 2px solid palette(base);
 }
 
-// For Switch widget (toggle switch)
-Switch[checked="true"] {
-    qproperty-track_color: rgb(220, 235, 255); // Light blue accent
-    qproperty-thumb_color: palette(base);
+QRadioButton::indicator::checked:disabled {
+    background-color: qradialgradient(cx:0.5, cy:0.5, fx:0.5, fy:0.5, radius:.4, stop:.65 rgb(136, 136, 136), stop:.75 transparent);
+    border: 2px solid rgb(136, 136, 136);
+}
+
+QScrollArea {
+    background-color: transparent;
+    border: none;
+}
+
+QScrollArea > QWidget > QWidget {
+    background-color: transparent;
+}
+
+QScrollBar {
+    background-color: transparent;
+}
+
+QScrollBar:vertical {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    width: 16px;
+}
+
+QScrollBar::handle {
+    background-color: rgba(0, 0, 0, 64);
+    border-radius: 8px;
+}
+
+QScrollBar::add-line {
+    border: none;
+}
+
+QScrollBar::sub-line {
+    border: none;
+}
+
+QLineEdit {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    border: none;
+    padding: 12px;
+    color: rgba(0, 0, 0, 222);
+    background-color: rgb(231, 231, 231);
+    border-bottom: 1px solid rgb(189, 189, 189);
+}
+
+QLineEdit:focus {
+    background-color: rgb(224, 224, 224);
+    border-bottom: 2px solid palette(base);
+}
+
+Switch {
+    qproperty-track_color: rgba(0, 0, 0, 64);
+    qproperty-thumb_color: rgb(224, 224, 224);
 }
 
 Tuner {
